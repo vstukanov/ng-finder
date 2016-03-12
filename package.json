@@ -5,18 +5,21 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "install": "node_modules/.bin/webpack"
+    "install": "node_modules/.bin/webpack",
+    "start": "node_modules/.bin/webpack-dev-server --content-base dist/ --history-api-fallback --hot --colors --open"
   },
   "author": "vstukanov@me.com",
   "license": "ISC",
   "devDependencies": {
+    "html-loader": "^0.4.3",
     "jshint": "^2.9.1",
     "jshint-loader": "^0.8.3",
-    "webpack": "^1.12.14"
+    "webpack": "^1.12.14",
+    "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
-    "@angular/router": "^0.2.0",
     "angular": "1.5.x",
+    "angular-route": "^1.5.0",
     "jquery": "^1.12.1"
   }
 }

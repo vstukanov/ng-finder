@@ -3,4 +3,13 @@
  */
 "use strict";
 
-require("./app.js");
+require("app")
+	.config(["$locationProvider", function (locationProvider) {
+		locationProvider.html5Mode ({
+			enabled: true,
+			requireBase: false
+		});
+	}]);
+
+// Components
+require("components/folder");

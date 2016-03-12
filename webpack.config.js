@@ -7,7 +7,16 @@ module.exports = {
 	entry: "./src/entry.js",
 	output: {
 		filename: "app.bundle.js",
-		path: "./dist"
+		path: "./dist/build"
+	},
+
+	devtool: "eval",
+
+	resolve: {
+		alias: {
+			app: __dirname + '/src/app.js',
+			components: __dirname + '/src/components/'
+		}
 	},
 
 	module: {
@@ -17,6 +26,10 @@ module.exports = {
 				loader: "jshint-loader",
 				exclude: /node_modules/
 			}
+		],
+
+		loaders: [
+			{ test: /\.html$/, loader: "html" }
 		]
 	},
 
