@@ -1,0 +1,17 @@
+{
+  "name": "ng-finder-server",
+  "version": "1.0.0",
+  "description": "ng-finder server api example",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "vstukanov@me.com",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4",
+    "express-history-api-fallback": "^2.0.0",
+    "promise": "^7.1.1",
+    "underscore": "^1.8.3"
+  }
+}
