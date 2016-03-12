@@ -10,6 +10,21 @@ module.exports = {
 		path: "./dist"
 	},
 
+	module: {
+		preLoaders: [
+			{
+				test: /\.js$/,
+				loader: "jshint-loader",
+				exclude: /node_modules/
+			}
+		]
+	},
+
+	jshint: {
+		emitErrors: true,
+		failOnHint: false
+	},
+
 	plugins: [
 		new webpack.ProvidePlugin({
 			$: "jquery",

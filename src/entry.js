@@ -1,5 +1,6 @@
 /**
- * Created by vstuk on 3/10/2016.
+ * Created by vst on 3/10/2016.
  */
+"use strict";
 
-var app = require("./app.js");
+require("./app.js");

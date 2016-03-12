@@ -1,0 +1,15 @@
+{
+  "maxerr": 50,
+
+  "unused": "vars",
+  "strict": true,
+  "maxlen": 120,
+  "browserify": true,
+  "devel": true,
+  "jquery": true,
+
+  "globals": {
+    "ng": true,
+    "$": true
+  }
+}
