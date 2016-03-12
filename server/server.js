@@ -43,7 +43,7 @@ var handler = function (req, res) {
 	var reqPath = req.path.replace (/^\/api/, "");
 
 	// Don't allow requests with dots
-	if (/\/\.\.?/.test(reqPath))
+	if (/\/\.\./.test(reqPath))
 	{
 		return res.status(503).send();
 	}

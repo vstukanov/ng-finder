@@ -12,4 +12,4 @@ require("app")
 	}]);
 
 // Components
-require("components/folder");
+require("components/navigator");

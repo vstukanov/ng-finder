@@ -1,0 +1,12 @@
+<div>
+    <h1>content of {{params.path}}</h1>
+
+    <ol>
+        <li>
+            <a href="{{backPath | navigate:path }}">..</a>
+        </li>
+        <li ng-repeat="entry in entries">
+            <a href="{{entry.name | navigate:path }}">{{entry.name}}</a>
+        </li>
+    </ol>
+</div>
