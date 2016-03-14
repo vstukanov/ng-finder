@@ -4,8 +4,10 @@
 "use strict";
 
 require("app")
-	.config(["$locationProvider", function (locationProvider) {
-		locationProvider.html5Mode ({
+	.config(["$routeProvider", "$locationProvider", function ($routeProvider, $locationProvider) {
+		$routeProvider.otherwise('/nav');
+
+		$locationProvider.html5Mode ({
 			enabled: true,
 			requireBase: false
 		});
