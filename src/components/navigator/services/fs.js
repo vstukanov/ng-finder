@@ -6,7 +6,7 @@
 
 var app = require('app');
 
-var FS = function($http)
+var FS = function($http, url, downloadUrl, join)
 {
 	return {
 		list: function (path)
@@ -19,13 +19,23 @@ var FS = function($http)
 					.values()
 					.map(function (list) { return _.sortBy(list, 'name'); })
 					.flatten(true)
+					.map(function (entry) {
+						var filter = (entry.type == 'folder') ? url : downloadUrl;
+						entry.path = filter(join(entry.name, path));
+						return entry;
+					})
 					.value();
 			});
 		}
 	};
 };
 
-FS.$inject = ['$http'];
+FS.$inject = [
+	'$http',
+	'urlFilter',
+	'downloadUrlFilter',
+	'joinFilter'
+];
 
 module.exports = FS;
 

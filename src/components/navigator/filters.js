@@ -19,6 +19,12 @@ app.filter('url', function () {
 	};
 });
 
+app.filter('downloadUrl', function () {
+	return function (fragment) {
+		return '/api/' + path.trim(fragment);
+	};
+});
+
 app.filter('timeago', function () {
 	return function (date) {
 		return moment(date).fromNow();

@@ -38,7 +38,9 @@
                     <i ng-class="'fa fa-' + entry.type"></i>
                 </td>
                 <td class="name">
-                    <a href="{{entry.name | join:path | url }}">{{entry.name}}</a>
+                    <a ng-href="{{entry.path}}" target-blank>
+                        {{entry.name}}
+                    </a>
                 </td>
                 <td class="mtime">{{entry.mtime | timeago}}</td>
                 <td class="size">{{entry.size | filesize}}</td>
