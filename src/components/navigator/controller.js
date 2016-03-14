@@ -4,17 +4,19 @@
 
 "use strict";
 
-var FolderController = function ($scope, $params, $http)
-{
-	$scope.params = $params;
-	$scope.path = $params.path || '/';
-	$scope.backPath = "..";
+var breadcrumbs = require('./services/breadcrumbs.js');
+require('./services/fs.js');
 
-	$http.get("/api/" + $scope.path).then(function (res) {
-		$scope.entries = res.data;
+var FolderController = function ($scope, $params, $fs)
+{
+	$scope.path = $params.path || '/';
+	$scope.breadcrumbs = breadcrumbs.generate($scope.path);
+
+	$fs.list($scope.path).then(function (entries) {
+		$scope.entries = entries;
 	});
 };
 
-FolderController.$inject = ['$scope', '$routeParams', '$http'];
+FolderController.$inject = ['$scope', '$routeParams', '$fs'];
 
 module.exports = FolderController;

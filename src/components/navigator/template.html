@@ -1,12 +1,48 @@
-<div>
-    <h1>content of {{params.path}}</h1>
+<div id="navigator">
+    <nav role="navigation">
+        <ul class="breadcrumbs">
+            <li>
+                <a href="{{'/' | url}}"><i class="fa fa-home"></i></a>
+            </li>
+            <li ng-repeat="breadcrumb in breadcrumbs"><!--
+                --><a ng-if="!breadcrumb.isLast" href="{{breadcrumb.path | url}}">{{breadcrumb.name}}</a><!--
+                --><span class="show-for-sr" ng-if="breadcrumb.isLast">{{breadcrumb.name}}</span>
+            </li>
+        </ul>
+    </nav>
 
-    <ol>
-        <li>
-            <a href="{{backPath | navigate:path }}">..</a>
-        </li>
-        <li ng-repeat="entry in entries">
-            <a href="{{entry.name | navigate:path }}">{{entry.name}}</a>
-        </li>
-    </ol>
+    <table class="folder-content">
+        <thead>
+            <tr>
+                <th></th>
+                <th class="name-field">Name</th>
+                <th>Date modified</th>
+                <th>Size</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr ng-if="path.length > 1" class="type-folder">
+                <td class="icon">
+                    <i class="fa fa-level-up"></i>
+                </td>
+                <td>
+                    <a href="{{'..' | join:path | url }}">..</a>
+                </td>
+                <td>-</td>
+                <td>-</td>
+            </tr>
+
+            <tr ng-repeat="entry in entries">
+                <td class="icon">
+                    <i ng-class="'fa fa-' + entry.type"></i>
+                </td>
+                <td class="name">
+                    <a href="{{entry.name | join:path | url }}">{{entry.name}}</a>
+                </td>
+                <td class="mtime">{{entry.mtime | timeago}}</td>
+                <td class="size">{{entry.size | filesize}}</td>
+            </tr>
+        </tbody>
+    </table>
 </div>

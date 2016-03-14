@@ -10,6 +10,7 @@
 
   "globals": {
     "ng": true,
-    "$": true
+    "$": true,
+    "_": true
   }
 }

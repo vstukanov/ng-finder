@@ -7,7 +7,8 @@ module.exports = {
 	entry: "./src/entry.js",
 	output: {
 		filename: "app.bundle.js",
-		path: "./dist/build"
+		path: "./dist/build",
+		publicPath: "/build/"
 	},
 
 	devtool: "eval",
@@ -29,7 +30,20 @@ module.exports = {
 		],
 
 		loaders: [
-			{ test: /\.html$/, loader: "html" }
+			{ test: /\.html$/, loader: "html" },
+			{ test: /\.scss$/, loaders: ["style", "css", "sass"] },
+			{
+				test: /\.css$/,
+				loader: 'style!css'
+			},
+			{
+				test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+				loader: "url-loader?limit=10000&minetype=application/font-woff"
+			},
+			{
+				test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+				loader: "file-loader"
+			}
 		]
 	},
 
@@ -41,7 +55,8 @@ module.exports = {
 	plugins: [
 		new webpack.ProvidePlugin({
 			$: "jquery",
-			ng: "angular"
+			ng: "angular",
+			_: "underscore"
 		})
 	]
 };

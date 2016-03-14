@@ -1,0 +1,53 @@
+@import "~foundation/scss/normalize";
+@import "~foundation/scss/foundation";
+
+#navigator
+{
+  padding-top: 1em;
+  @include grid-row;
+
+  .breadcrumbs {
+    font-size: 1.2em;
+    li > span {
+      color: $body-font-color;
+      font-weight: bold;
+    }
+  }
+
+  .folder-content {
+    width: 100%;
+
+    .name-field {
+      width: 100%;
+    }
+
+    th, td {
+      white-space: nowrap;
+    }
+
+    td.mtime, td.size {
+      color: lighten($body-font-color, 30%);
+    }
+
+    td.icon {
+      text-align: center;
+      padding-right: 0;
+    }
+
+    td.name > a {
+      color: lighten($body-font-color, 10%);
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    td i.fa-folder, td i.fa-level-up {
+      color: #ffae00;
+    }
+
+    td i.fa-file {
+      color: $primary-color;
+    }
+  }
+}
